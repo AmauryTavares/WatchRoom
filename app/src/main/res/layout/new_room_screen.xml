@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- By: Amaury -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background">
+
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/default_background"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/left_arrow_icon"
+            android:tooltipText="@string/buy_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Voltar"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nova Sala"
+        android:textSize="40dp"
+        android:layout_marginTop="-60dp"
+        android:layout_gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white" />
+
+    <EditText
+        android:id="@+id/email_text"
+        android:layout_width="400dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="100dp"
+        android:inputType="text"
+        android:hint="E-mail"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:paddingLeft="15dp"
+        android:background="@drawable/rounded_edittext" />
+
+    <Spinner
+        android:layout_width="400dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:prompt="Selecione a privacidade"
+        android:spinnerMode="dropdown"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:paddingLeft="15dp"
+        android:background="@drawable/rounded_edittext"
+        />
+
+    <EditText
+        android:id="@+id/passoword_text"
+        android:layout_width="400dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:hint="Senha"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:paddingLeft="15dp"
+        android:background="@drawable/rounded_edittext" />
+
+    <Button
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:text="Criar"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/rounded_button_green" />
+
+
+</LinearLayout>

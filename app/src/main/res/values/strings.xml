@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">WatchRoom</string>
+    <string name="browse_title">Videos by Your Company</string>
+    <string name="related_movies">Related Videos</string>
+    <string name="grid_view">Grid View</string>
+    <string name="error_fragment">Error Fragment</string>
+    <string name="personal_settings">Personal Settings</string>
+    <string name="watch_trailer_1">Watch trailer</string>
+    <string name="watch_trailer_2">FREE</string>
+    <string name="rent_1">Rent By Day</string>
+    <string name="rent_2">From $1.99</string>
+    <string name="buy_1">Buy and Own</string>
+    <string name="buy_2">AT $9.99</string>
+    <string name="movie">Movie</string>
+
+    <!-- Error messages -->
+    <string name="error_fragment_message">An error occurred</string>
+    <string name="dismiss_error">Dismiss</string>
+    <string name="discordo">Discordo</string>
+    <string name="concordo">Concordo</string>
+    <string name="text_test">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam eget iaculis sem. Vivamus vulputate cursus ante vitae condimentum. Donec eget consectetur elit. Aliquam pellentesque feugiat orci non tristique. Maecenas venenatis tincidunt orci eget placerat. Integer faucibus id turpis a mollis. Maecenas nulla nisi, dignissim quis leo nec, iaculis maximus mi. Pellentesque arcu diam, rhoncus quis condimentum non, fringilla sit amet turpis. Nullam pharetra tempor cursus. Cras sed maximus eros, non condimentum lacus. Pellentesque et eros varius nulla condimentum vehicula. Vivamus egestas est elit, id laoreet odio accumsan in. Phasellus consectetur ex libero, in euismod nunc pulvinar vitae. Cras vulputate nisi vel sollicitudin interdum. Phasellus lobortis purus eget tortor iaculis, sed pulvinar urna rutrum. Nunc cursus turpis in diam egestas luctus. Aliquam ac orci arcu. Nullam at rhoncus mi. Sed a euismod metus.</string>
+    <string name="termos_de_privacidade">Termos de Privacidade</string>
+    <string name="lista_de_v_deos">Lista de Vídeos</string>
+</resources>

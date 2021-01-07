@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- By: Amaury -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageButton
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:background="@color/default_background"
+            android:scaleX="0.5"
+            android:scaleY="0.5"
+            android:src="@drawable/left_arrow_icon"
+            android:tooltipText="@string/buy_1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Voltar"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar Vídeo"
+        android:textSize="40dp"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_gravity="center"
+        android:layout_marginTop="-60dp"
+        />
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+
+        <ImageButton
+            android:layout_width="110dp"
+            android:layout_height="45dp"
+            android:layout_marginLeft="300dp"
+            android:background="@drawable/rounded_button_green"
+            android:paddingVertical="8dp"
+            android:paddingRight="15dp"
+            android:scaleType="fitEnd"
+            android:src="@drawable/search_icon" />
+
+        <EditText
+            android:id="@+id/name_text"
+            android:layout_width="350dp"
+            android:layout_height="45dp"
+            android:layout_gravity="center"
+            android:background="@drawable/rounded_edittext"
+            android:hint="Pesquise por nome do vídeo"
+            android:textSize="16sp"
+            android:inputType="text"
+            android:paddingLeft="15dp"
+            android:textColor="@color/black"
+            android:textColorHint="@color/gray" />
+
+
+    </RelativeLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:listitem="@layout/video_list_item"
+        android:scrollbars="vertical"/>
+
+</LinearLayout>

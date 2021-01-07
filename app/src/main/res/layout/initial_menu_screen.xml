@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- By: Amaury -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/default_background">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/img_logo" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="100dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/profile_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Perfil"
+                    android:layout_gravity="center"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:orientation="vertical"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="10dp">
+
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:src="@drawable/friends_icon" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Amigos"
+                    android:textSize="20dp"
+                    android:textColor="@color/white"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_button_soft_blue"
+            android:text="Minhas Salas"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_button_soft_blue"
+            android:text="Salas Públicas "
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="80dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp">
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_button_soft_blue"
+            android:text="Usar código de sala"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="300dp"
+            android:layout_height="180dp"
+            android:background="@drawable/rounded_button_soft_blue"
+            android:text="Criar nova sala"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:layout_marginLeft="80dp"/>
+
+    </LinearLayout>
+
+
+</LinearLayout>
