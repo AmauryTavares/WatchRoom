@@ -18,7 +18,7 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.WatchRoom"
-        android:banner="TODO">
+        android:banner="@drawable/banner">
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"

@@ -19,10 +19,9 @@
         android:layout_marginLeft="10dp"
         android:background="@drawable/rounded_floating_button"
         android:paddingHorizontal="20dp"
-        android:paddingVertical="10dp"
-        android:visibility="invisible">
+        android:paddingVertical="10dp">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/arrow_floating" />
@@ -49,10 +48,9 @@
         android:layout_gravity="center_vertical"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_marginRight="10dp"
-        android:visibility="invisible">
+        android:layout_marginRight="10dp">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/arrow_floating"
@@ -79,10 +77,9 @@
         android:paddingVertical="10dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="10dp"
-        android:visibility="invisible">
+        android:layout_marginTop="10dp">
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/arrow_floating"
@@ -111,9 +108,10 @@
         android:paddingVertical="10dp"
         android:layout_marginEnd="420dp"
         android:layout_alignParentRight="true"
-        android:visibility="invisible">
+        android:visibility="invisible"
+        >
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
+        <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/arrow_floating" />
@@ -136,7 +134,8 @@
         android:layout_height="match_parent"
         android:background="@color/default_background"
         android:layout_alignParentRight="true"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="invisible">
 
         <include layout="@layout/video_list_screen"></include>
 
