@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/video_bg">
+
+    <RelativeLayout
+        android:layout_width="550dp"
+        android:layout_height="380dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="199dp"
+        android:layout_marginTop="75dp"
+        android:layout_marginEnd="179dp"
+        android:layout_marginBottom="80dp"
+        android:background="@color/cardview_dark_background">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/null"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="61dp"
+            android:layout_marginBottom="140dp">
+
+            <TextView
+                android:layout_width="189dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="171dp"
+                android:layout_marginEnd="190dp"
+                android:layout_marginBottom="23dp"
+                android:text="AC5S6B"
+                android:textSize="176pt" />
+
+            <TextView
+                android:layout_width="495dp"
+                android:layout_height="87dp"
+                android:layout_above="@+id/null"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentEnd="true"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="19dp"
+                android:layout_marginEnd="23dp"
+                android:layout_marginBottom="25dp"
+                android:text="Use o código da sala abaixo para compartilhar a sala entre outras pessoas."
+                android:textSize="96pt" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/null"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="100dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginEnd="100dp"
+            android:layout_marginBottom="50dp">
+
+            <Button
+                android:layout_width="350dp"
+                android:layout_height="70dp"
+                android:layout_alignParentBottom="true"
+                android:text="Voltar"
+                android:background="@color/button_green"
+                android:textSize="106pt" />
+
+        </LinearLayout>
+
+
+    </RelativeLayout>
+
+</LinearLayout>

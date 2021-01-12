@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/video_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/cardview_dark_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp">
+
+            <ImageButton
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:background="@color/cardview_dark_background"
+                android:scaleX="0.5"
+                android:scaleY="0.5"
+                android:src="@drawable/left_arrow_icon"
+                android:tooltipText="@string/buy_1" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_marginRight="30dp"
+                android:text="Voltar"
+                android:textSize="30dp" />
+
+            <Button
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:text="Configurações"
+                android:background="@color/button_soft_blue"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="76pt" />
+
+            <Button
+                android:layout_width="250dp"
+                android:layout_height="50dp"
+                android:text="Compartilhar Sala"
+                android:background="@color/button_green"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="76pt" />
+
+            <Button
+                android:layout_width="170dp"
+                android:layout_height="50dp"
+                android:text="Sair da Sala"
+                android:background="@color/button_red"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:textSize="76pt" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

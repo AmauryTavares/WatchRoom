@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/video_bg"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="400dp"
+        android:layout_height="match_parent"
+        android:background="@color/cardview_dark_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="69dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="Lista de Usuários"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="54dp"
+            android:layout_marginBottom="419dp">
+
+            <Button
+                android:layout_width="300dp"
+                android:layout_height="50dp"
+                android:drawableLeft="@drawable/ic_plus"
+                android:layout_alignParentBottom="true"
+                android:paddingLeft="20dp"
+                android:background="@color/button_soft_blue"
+                android:text="Adicionar Usuário"
+                android:textSize="76pt" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="383dp"
+            android:layout_below="@+id/null"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="18dp">
+
+            <ListView
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/room_left_menu_item" />
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>
