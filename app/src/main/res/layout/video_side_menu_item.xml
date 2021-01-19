@@ -12,10 +12,13 @@
         android:baselineAligned="false">
 
         <ImageView
+            android:id="@+id/remove_button"
             android:layout_width="60dp"
             android:layout_height="100dp"
             android:background="@drawable/rounded_button_red"
-            android:layout_alignParentEnd="true"/>
+            android:layout_alignParentEnd="true"
+            android:focusable="true"
+            android:nextFocusLeft="@id/video_item"/>
 
         <ImageView
             android:layout_width="40dp"
@@ -32,7 +35,9 @@
             android:background="@drawable/rounded_button_soft_blue"
             android:orientation="horizontal"
             android:padding="10dp"
-            android:layout_alignParentStart="true">
+            android:layout_alignParentStart="true"
+            android:focusable="true"
+            android:nextFocusRight="@id/remove_button">
 
             <ImageView
                 android:id="@+id/video_img"

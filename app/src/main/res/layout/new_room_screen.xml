@@ -9,13 +9,17 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/back_button"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_button"
+        android:focusable="true"
+        android:nextFocusDown="@id/name_text">
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@color/default_background"
+            android:background="@color/tranparent"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/left_arrow_icon"
@@ -41,7 +45,7 @@
         android:textColor="@color/white" />
 
     <EditText
-        android:id="@+id/email_text"
+        android:id="@+id/name_text"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
@@ -51,23 +55,35 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:textSize="15sp"
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/back_button"
+        android:nextFocusDown="@id/privacy_button">
 
-    <Spinner
+        <requestFocus />
+    </EditText>
+
+    <Button
+        android:id="@+id/privacy_button"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginTop="10dp"
-        android:prompt="@string/selecione_a_privacidade"
-        android:spinnerMode="dropdown"
+        android:paddingLeft="20dp"
+        android:hint="Pública"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
-        android:paddingLeft="15dp"
+        android:gravity="left|center"
+        android:textSize="15sp"
+        android:textStyle="normal"
         android:background="@drawable/rounded_edittext"
-        />
+        android:focusable="true"
+        android:nextFocusUp="@id/name_text"
+        android:nextFocusDown="@id/password_text"/>
 
     <EditText
-        android:id="@+id/passoword_text"
+        android:id="@+id/password_text"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
@@ -77,15 +93,22 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:textSize="15sp"
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/privacy_button"
+        android:nextFocusDown="@id/create_button"/>
 
     <Button
+        android:id="@+id/create_button"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Criar"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_button_green" />
+        android:background="@drawable/rounded_button_green"
+        android:focusable="true"
+        android:nextFocusUp="@id/password_text"/>
 
 
 </LinearLayout>

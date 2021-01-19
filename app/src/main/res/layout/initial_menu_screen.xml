@@ -19,16 +19,24 @@
             android:layout_height="wrap_content">
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/profile_button"
+                android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="100dp">
+                android:layout_marginRight="100dp"
+                android:background="@drawable/back_button"
+                android:focusable="true"
+                android:nextFocusDown="@id/my_rooms_button"
+                android:nextFocusRight="@id/friends_button"
+                android:nextFocusLeft="@id/profile_button">
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/profile_icon" />
+                    android:src="@drawable/profile_icon"
+                    android:background="@color/tranparent"
+                    android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -42,16 +50,23 @@
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:id="@+id/friends_button"
+                android:layout_width="80dp"
                 android:layout_height="100dp"
                 android:orientation="vertical"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="10dp">
+                android:layout_marginRight="10dp"
+                android:background="@drawable/back_button"
+                android:focusable="true"
+                android:nextFocusDown="@id/my_rooms_button"
+                android:nextFocusLeft="@id/profile_button">
 
                 <ImageView
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/friends_icon" />
+                    android:src="@drawable/friends_icon"
+                    android:background="@color/tranparent"
+                    android:layout_gravity="center"/>
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -75,21 +90,36 @@
         android:layout_marginTop="10dp">
 
         <Button
+            android:id="@+id/my_rooms_button"
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:background="@drawable/rounded_button_soft_blue"
             android:text="Minhas Salas"
             android:textSize="30sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:focusable="true"
+            android:nextFocusUp="@id/profile_button"
+            android:nextFocusRight="@id/public_rooms_button"
+            android:nextFocusDown="@id/code_room_button">
+
+            <requestFocus />
+        </Button>
 
         <Button
+            android:id="@+id/public_rooms_button"
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:background="@drawable/rounded_button_soft_blue"
             android:text="Salas Públicas "
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginLeft="80dp"/>
+            android:layout_marginLeft="80dp"
+            android:focusable="true"
+            android:nextFocusUp="@id/profile_button"
+            android:nextFocusLeft="@id/my_rooms_button"
+            android:nextFocusDown="@id/create_room_button"
+            android:nextFocusRight="@id/public_rooms_button"
+            />
 
     </LinearLayout>
 
@@ -100,21 +130,30 @@
         android:layout_marginTop="20dp">
 
         <Button
+            android:id="@+id/code_room_button"
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:background="@drawable/rounded_button_soft_blue"
             android:text="Usar código de sala"
             android:textSize="24sp"
-            android:textStyle="bold" />
+            android:textStyle="bold"
+            android:focusable="true"
+            android:nextFocusUp="@id/my_rooms_button"
+            android:nextFocusRight="@id/create_room_button"/>
 
         <Button
+            android:id="@+id/create_room_button"
             android:layout_width="300dp"
             android:layout_height="180dp"
             android:background="@drawable/rounded_button_soft_blue"
             android:text="Criar nova sala"
             android:textSize="30sp"
             android:textStyle="bold"
-            android:layout_marginLeft="80dp"/>
+            android:layout_marginLeft="80dp"
+            android:focusable="true"
+            android:nextFocusUp="@id/public_rooms_button"
+            android:nextFocusLeft="@id/code_room_button"
+            android:nextFocusRight="@id/create_room_button"/>
 
     </LinearLayout>
 

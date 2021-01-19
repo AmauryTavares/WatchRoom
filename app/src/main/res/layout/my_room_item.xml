@@ -15,7 +15,7 @@
             android:id="@+id/my_room1"
             android:layout_width="400dp"
             android:layout_height="100dp"
-            android:background="@drawable/rounded_button_soft_blue"
+            android:background="@drawable/rounded_button_soft_blue_normal"
             android:orientation="vertical"
             android:padding="10dp">
 
@@ -69,7 +69,7 @@
             android:layout_width="400dp"
             android:layout_height="100dp"
             android:layout_marginLeft="30dp"
-            android:background="@drawable/rounded_button_soft_blue"
+            android:background="@drawable/rounded_button_soft_blue_normal"
             android:orientation="vertical"
             android:padding="10dp">
 

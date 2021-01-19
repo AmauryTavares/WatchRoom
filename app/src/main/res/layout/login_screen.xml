@@ -24,10 +24,16 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusDown="@id/password_text"
+        >
+
+        <requestFocus />
+    </EditText>
 
     <EditText
-        android:id="@+id/passoword_text"
+        android:id="@+id/password_text"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
@@ -37,7 +43,11 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/email_text"
+        android:nextFocusDown="@id/login_button"
+        />
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -46,20 +56,28 @@
         android:layout_gravity="center">
 
         <Button
+            android:id="@+id/login_button"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Entrar"
             android:layout_gravity="center"
             android:background="@drawable/rounded_button_blue"
+            android:focusable="true"
+            android:nextFocusUp="@id/password_text"
+            android:nextFocusRight="@id/register_button"
             />
 
         <Button
+            android:id="@+id/register_button"
             android:layout_width="160dp"
             android:layout_height="wrap_content"
             android:text="Registrar"
             android:layout_gravity="center"
             android:layout_marginLeft="90dp"
-            android:background="@drawable/rounded_button_red" />
+            android:background="@drawable/rounded_button_red"
+            android:focusable="true"
+            android:nextFocusUp="@id/password_text"
+            android:nextFocusLeft="@id/login_button"/>
 
     </LinearLayout>
 

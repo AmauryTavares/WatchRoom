@@ -25,6 +25,7 @@
         android:layout_marginTop="20dp">
 
         <ImageButton
+            android:id="@+id/search_button"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_marginLeft="250dp"
@@ -32,7 +33,10 @@
             android:paddingVertical="8dp"
             android:paddingRight="15dp"
             android:scaleType="fitEnd"
-            android:src="@drawable/search_icon" />
+            android:src="@drawable/search_icon"
+            android:focusable="true"
+            android:nextFocusLeft="@id/name_text"
+            android:nextFocusDown="@id/video_list"/>
 
         <EditText
             android:id="@+id/name_text"
@@ -45,15 +49,23 @@
             android:inputType="text"
             android:paddingLeft="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:textColorHint="@color/gray"
+            android:focusable="true"
+            android:nextFocusRight="@id/search_button"
+            android:nextFocusDown="@id/video_list">
+
+        </EditText>
 
 
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/video_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/video_side_menu_item"
-        android:scrollbars="vertical"/>
+        android:scrollbars="vertical"
+        android:focusable="true"
+        android:nextFocusUp="@id/name_text"/>
 
 </LinearLayout>

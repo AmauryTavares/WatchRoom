@@ -8,13 +8,18 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/back_button"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_button"
+        android:focusable="true"
+        android:nextFocusDown="@id/name_text"
+        >
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@color/default_background"
+            android:background="@color/tranparent"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/left_arrow_icon"
@@ -46,6 +51,7 @@
         android:layout_marginTop="20dp">
 
         <ImageButton
+            android:id="@+id/search_button"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_marginLeft="350dp"
@@ -53,7 +59,11 @@
             android:paddingVertical="8dp"
             android:paddingRight="15dp"
             android:scaleType="fitEnd"
-            android:src="@drawable/search_icon" />
+            android:src="@drawable/search_icon"
+            android:focusable="true"
+            android:nextFocusUp="@id/back_button"
+            android:nextFocusLeft="@id/name_text"
+            android:nextFocusDown="@id/rooms_list"/>
 
         <EditText
             android:id="@+id/name_text"
@@ -65,15 +75,25 @@
             android:inputType="text"
             android:paddingLeft="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:textColorHint="@color/gray"
+            android:focusable="true"
+            android:nextFocusUp="@id/back_button"
+            android:nextFocusRight="@id/search_button"
+            android:nextFocusDown="@id/rooms_list"
+            >
+
+            <requestFocus />
+        </EditText>
 
 
     </RelativeLayout>
 
     <ListView
+        android:id="@+id/rooms_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/my_room_item">
+        tools:listitem="@layout/my_room_item"
+        android:nextFocusUp="@id/name_text">
     </ListView>
 
 </LinearLayout>

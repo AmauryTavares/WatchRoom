@@ -7,13 +7,17 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/back_button"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_button"
+        android:focusable="true"
+        android:nextFocusDown="@id/name_text">
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@color/default_background"
+            android:background="@color/tranparent"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/left_arrow_icon"
@@ -44,20 +48,29 @@
         android:layout_height="45dp"
         android:layout_gravity="center"
         android:layout_marginTop="180dp"
-        android:inputType="text"
+        android:inputType="number"
         android:hint="Digite o código da sala"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/back_button"
+        android:nextFocusDown="@id/enter" >
+
+        <requestFocus />
+    </EditText>
 
     <Button
+        android:id="@+id/enter"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Entrar"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_button_green" />
+        android:background="@drawable/rounded_button_green"
+        android:focusable="true"
+        android:nextFocusUp="@id/name_text"/>
 
 
 </LinearLayout>

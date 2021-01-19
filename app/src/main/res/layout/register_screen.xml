@@ -7,13 +7,17 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:id="@+id/back_button"
+        android:layout_width="170dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/back_button"
+        android:focusable="true"
+        android:nextFocusDown="@id/name_text">
 
         <ImageButton
             android:layout_width="70dp"
             android:layout_height="70dp"
-            android:background="@color/default_background"
+            android:background="@color/tranparent"
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/left_arrow_icon"
@@ -48,7 +52,13 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/back_button"
+        android:nextFocusDown="@id/email_text">
+
+        <requestFocus />
+    </EditText>
 
     <EditText
         android:id="@+id/email_text"
@@ -61,10 +71,13 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/name_text"
+        android:nextFocusDown="@id/password_text"/>
 
     <EditText
-        android:id="@+id/passoword_text"
+        android:id="@+id/password_text"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
@@ -74,10 +87,13 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/email_text"
+        android:nextFocusDown="@id/conf_password_text"/>
 
     <EditText
-        android:id="@+id/conf_passoword_text"
+        android:id="@+id/conf_password_text"
         android:layout_width="400dp"
         android:layout_height="45dp"
         android:layout_gravity="center"
@@ -87,15 +103,22 @@
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:paddingLeft="15dp"
-        android:background="@drawable/rounded_edittext" />
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/password_text"
+        android:nextFocusDown="@id/register_button"
+        />
 
     <Button
+        android:id="@+id/register_button"
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:text="Registrar"
         android:layout_gravity="center"
         android:layout_marginTop="40dp"
-        android:background="@drawable/rounded_button_green" />
+        android:background="@drawable/rounded_button_green"
+        android:focusable="true"
+        android:nextFocusUp="@id/conf_password_text"/>
 
 
 </LinearLayout>
