@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/video_bg"
+    android:orientation="horizontal">
+
+    <RelativeLayout
+        android:layout_width="390dp"
+        android:layout_height="match_parent"
+        android:layout_marginStart="570dp"
+        android:background="@color/cardview_dark_background">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="69dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginRight="30dp"
+                android:text="Lista de Amigos"
+                android:textSize="30dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="320dp"
+            android:layout_height="383dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginEnd="28dp"
+            android:layout_marginBottom="100dp">
+
+            <ListView
+                android:id="@+id/friends_list_menu"
+                android:layout_width="match_parent"
+                android:layout_height="310dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="0dp"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/friends_right_menu_item" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_back"
+            android:layout_width="171dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="47dp"
+            android:layout_marginEnd="172dp"
+            android:layout_marginBottom="63dp"
+            android:background="@color/button_green"
+            android:drawableLeft="@drawable/arrow_floating"
+            android:paddingLeft="20dp"
+            android:text="Voltar"
+            android:textSize="16sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

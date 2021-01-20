@@ -9,22 +9,12 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
-        <ImageButton
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:background="@color/default_background"
-            android:scaleX="0.5"
-            android:scaleY="0.5"
-            android:src="@drawable/left_arrow_icon"
-            android:tooltipText="@string/buy_1" />
-
-        <TextView
-            android:layout_width="wrap_content"
+        <Button android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
+            android:id="@+id/btn_back_settings"
+            android:drawableLeft="@drawable/left_arrow_icon"
             android:text="Voltar"
-            android:textSize="30dp" />
+            android:textSize="26sp"/>
 
     </LinearLayout>
 
@@ -70,7 +60,7 @@
             android:layout_width="250dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_edittext_normal"
+            android:background="@drawable/rounded_edittext"
             android:hint="Nome da sala"
             android:textSize="16sp"
             android:inputType="text"
@@ -91,7 +81,7 @@
             android:layout_width="250dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
-            android:background="@drawable/rounded_edittext_normal"
+            android:background="@drawable/rounded_edittext"
             android:hint="Senha"
             android:textSize="16sp"
             android:inputType="text"
