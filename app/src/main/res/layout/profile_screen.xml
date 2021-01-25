@@ -8,7 +8,8 @@
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:onClick="Back">
 
         <ImageButton
             android:layout_width="70dp"
@@ -17,7 +18,7 @@
             android:scaleX="0.5"
             android:scaleY="0.5"
             android:src="@drawable/left_arrow_icon"
-            android:tooltipText="@string/buy_1" />
+            android:tooltipText="@string/buy_1"/>
 
         <TextView
             android:layout_width="wrap_content"

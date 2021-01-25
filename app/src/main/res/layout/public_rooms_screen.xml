@@ -13,7 +13,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/back_button"
         android:focusable="true"
-        android:nextFocusDown="@id/name_text">
+        android:nextFocusDown="@id/name_text"
+        android:onClick="Back">
 
         <ImageButton
             android:layout_width="70dp"
@@ -86,11 +87,18 @@
 
     </RelativeLayout>
 
-    <ListView
+    <GridView
         android:id="@+id/rooms_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="-60dp"
+        android:nextFocusUp="@id/name_text"
+        android:numColumns="2"
+        android:gravity="center"
+        android:descendantFocusability="afterDescendants"
         tools:listitem="@layout/public_room_item">
-    </ListView>
+    </GridView>
 
 </LinearLayout>

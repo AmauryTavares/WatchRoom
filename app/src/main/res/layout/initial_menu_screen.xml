@@ -29,7 +29,8 @@
                 android:focusable="true"
                 android:nextFocusDown="@id/my_rooms_button"
                 android:nextFocusRight="@id/friends_button"
-                android:nextFocusLeft="@id/profile_button">
+                android:nextFocusLeft="@id/profile_button"
+                android:onClick="Profile">
 
                 <ImageView
                     android:layout_width="60dp"
@@ -59,7 +60,8 @@
                 android:background="@drawable/back_button"
                 android:focusable="true"
                 android:nextFocusDown="@id/my_rooms_button"
-                android:nextFocusLeft="@id/profile_button">
+                android:nextFocusLeft="@id/profile_button"
+                android:onClick="Friends">
 
                 <ImageView
                     android:layout_width="60dp"
@@ -100,7 +102,8 @@
             android:focusable="true"
             android:nextFocusUp="@id/profile_button"
             android:nextFocusRight="@id/public_rooms_button"
-            android:nextFocusDown="@id/code_room_button">
+            android:nextFocusDown="@id/code_room_button"
+            android:onClick="MyRooms">
 
             <requestFocus />
         </Button>
@@ -119,6 +122,7 @@
             android:nextFocusLeft="@id/my_rooms_button"
             android:nextFocusDown="@id/create_room_button"
             android:nextFocusRight="@id/public_rooms_button"
+            android:onClick="PublicRooms"
             />
 
     </LinearLayout>
@@ -139,7 +143,8 @@
             android:textStyle="bold"
             android:focusable="true"
             android:nextFocusUp="@id/my_rooms_button"
-            android:nextFocusRight="@id/create_room_button"/>
+            android:nextFocusRight="@id/create_room_button"
+            android:onClick="CodeRoom"/>
 
         <Button
             android:id="@+id/create_room_button"
@@ -153,7 +158,8 @@
             android:focusable="true"
             android:nextFocusUp="@id/public_rooms_button"
             android:nextFocusLeft="@id/code_room_button"
-            android:nextFocusRight="@id/create_room_button"/>
+            android:nextFocusRight="@id/create_room_button"
+            android:onClick="CreateRoom"/>
 
     </LinearLayout>
 

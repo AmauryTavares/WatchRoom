@@ -20,16 +20,66 @@
         android:theme="@style/Theme.WatchRoom"
         android:banner="@drawable/banner">
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginScreenActivity"
             android:label="@string/app_name"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity
+            android:name=".InitialMenuActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".RegisterScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".MyRoomsScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".PublicRoomsScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".CodeRoomScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".CreateRoomScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".ProfileScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".FriendScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".VideoScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
+            android:name=".AddVideoScreenActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
     </application>
 
 </manifest>

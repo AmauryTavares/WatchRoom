@@ -65,6 +65,7 @@
             android:focusable="true"
             android:nextFocusUp="@id/password_text"
             android:nextFocusRight="@id/register_button"
+            android:onClick="Login"
             />
 
         <Button
@@ -77,7 +78,8 @@
             android:background="@drawable/rounded_button_red"
             android:focusable="true"
             android:nextFocusUp="@id/password_text"
-            android:nextFocusLeft="@id/login_button"/>
+            android:nextFocusLeft="@id/login_button"
+            android:onClick="Register"/>
 
     </LinearLayout>
 

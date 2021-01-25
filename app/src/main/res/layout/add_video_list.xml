@@ -14,7 +14,8 @@
         android:background="@drawable/back_button"
         android:focusable="true"
         android:nextFocusRight="@id/search_text"
-        android:nextFocusDown="@id/search_text">
+        android:nextFocusDown="@id/search_text"
+        android:onClick="Back">
 
         <ImageButton
             android:layout_width="70dp"
@@ -90,13 +91,17 @@
 
     </RelativeLayout>
 
-    <ListView
+    <GridView
         android:id="@+id/videos_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="-60dp"
+        android:numColumns="1"
+        android:gravity="center"
+        android:descendantFocusability="afterDescendants"
         tools:listitem="@layout/video_list_item"
-        android:scrollbars="vertical"
-        android:nextFocusUp="@id/search_text"
-        android:focusable="true"/>
+        android:nextFocusUp="@id/search_text" />
 
 </LinearLayout>

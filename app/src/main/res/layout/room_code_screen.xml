@@ -12,7 +12,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/back_button"
         android:focusable="true"
-        android:nextFocusDown="@id/name_text">
+        android:nextFocusDown="@id/name_text"
+        android:onClick="Back">
 
         <ImageButton
             android:layout_width="70dp"
@@ -70,7 +71,8 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button_green"
         android:focusable="true"
-        android:nextFocusUp="@id/name_text"/>
+        android:nextFocusUp="@id/name_text"
+        android:onClick="Enter"/>
 
 
 </LinearLayout>

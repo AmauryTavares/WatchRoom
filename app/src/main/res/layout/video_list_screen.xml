@@ -36,7 +36,8 @@
             android:src="@drawable/search_icon"
             android:focusable="true"
             android:nextFocusLeft="@id/name_text"
-            android:nextFocusDown="@id/video_list"/>
+            android:nextFocusDown="@id/video_list"
+            android:onClick="SearchVideo"/>
 
         <EditText
             android:id="@+id/name_text"
@@ -59,13 +60,17 @@
 
     </RelativeLayout>
 
-    <ListView
+    <GridView
         android:id="@+id/video_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/video_side_menu_item"
-        android:scrollbars="vertical"
-        android:focusable="true"
-        android:nextFocusUp="@id/name_text"/>
+        android:paddingTop="10dp"
+        android:verticalSpacing="10dp"
+        android:horizontalSpacing="-60dp"
+        android:nextFocusUp="@id/name_text"
+        android:numColumns="1"
+        android:gravity="center"
+        android:descendantFocusability="afterDescendants"
+        tools:listitem="@layout/video_side_menu_item" />
 
 </LinearLayout>

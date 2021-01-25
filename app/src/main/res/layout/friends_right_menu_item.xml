@@ -10,7 +10,6 @@
 
         <Button
             android:id="@+id/friends_list_menu_item"
-            android:drawableRight="@drawable/ic_plus_item"
             android:layout_width="350dp"
             android:layout_height="50dp"
             android:paddingRight="20dp"

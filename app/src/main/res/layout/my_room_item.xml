@@ -1,25 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:orientation="vertical" android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:background="@drawable/rounded_button_soft_blue"
+    android:focusable="true"
+    android:onClick="Video">
 
     <LinearLayout
         android:id="@+id/my_room_item"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:baselineAligned="false">
+        android:baselineAligned="false"
+        >
 
         <LinearLayout
             android:id="@+id/my_room1"
             android:layout_width="400dp"
             android:layout_height="100dp"
-            android:background="@drawable/rounded_button_soft_blue_normal"
             android:orientation="vertical"
             android:padding="10dp">
 
             <TextView
+                android:id="@+id/room_name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Nome da Sala"
@@ -28,6 +31,7 @@
                 android:textStyle="bold" />
 
             <TextView
+                android:id="@+id/adm_name1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Administrador: Nome do Administrador"
@@ -39,6 +43,7 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/privacy1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Privacidade: Pública"
@@ -52,60 +57,7 @@
                     android:src="@drawable/profile_icon" />
 
                 <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:text="50"
-                    android:textColor="@color/white"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
-
-            </RelativeLayout>
-
-        </LinearLayout>
-
-        <LinearLayout
-            android:id="@+id/my_room2"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            android:layout_marginLeft="30dp"
-            android:background="@drawable/rounded_button_soft_blue_normal"
-            android:orientation="vertical"
-            android:padding="10dp">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Nome da Sala"
-                android:textColor="@color/white"
-                android:textSize="20dp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Administrador: Nome do Administrador"
-                android:textColor="@color/white"
-                android:textSize="16dp" />
-
-            <RelativeLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Privacidade: Pública"
-                    android:textColor="@color/white"
-                    android:textSize="16dp" />
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:src="@drawable/profile_icon" />
-
-                <TextView
+                    android:id="@+id/users1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"

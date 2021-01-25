@@ -59,6 +59,7 @@
             android:focusable="true"
             android:nextFocusUp="@id/privacy_text"
             android:nextFocusRight="@id/disagree_button"
+            android:onClick="AgreePrivacy"
             />
 
         <Button
@@ -73,7 +74,8 @@
             tools:ignore="ButtonStyle"
             android:focusable="true"
             android:nextFocusUp="@id/privacy_text"
-            android:nextFocusLeft="@id/agree_button"/>
+            android:nextFocusLeft="@id/agree_button"
+            android:onClick="DisagreePrivacy"/>
 
     </LinearLayout>
 

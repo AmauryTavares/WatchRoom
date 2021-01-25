@@ -39,7 +39,7 @@
                 android:id="@+id/btn_add_user"
                 android:layout_width="300dp"
                 android:layout_height="50dp"
-                android:drawableLeft="@drawable/ic_plus_item"
+
                 android:layout_alignParentBottom="true"
                 android:paddingLeft="20dp"
                 android:background="@color/button_soft_blue"

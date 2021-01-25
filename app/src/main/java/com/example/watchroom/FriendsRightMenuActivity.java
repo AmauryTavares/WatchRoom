@@ -37,7 +37,7 @@ public class FriendsRightMenuActivity extends Activity {
         btn_add_user.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(view.getContext(), MainActivity.class);
+                Intent intent = new Intent(view.getContext(), VideoScreenActivity.class);
                 view.getContext().startActivity(intent);}
         });
     }
