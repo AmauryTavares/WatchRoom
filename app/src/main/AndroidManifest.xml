@@ -80,6 +80,11 @@
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden"></activity>
 
+        <activity
+            android:name=".RoomSettingsActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
     </application>
 
 </manifest>
