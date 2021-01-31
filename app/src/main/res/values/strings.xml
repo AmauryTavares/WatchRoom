@@ -22,4 +22,11 @@
     <string name="termos_de_privacidade">Termos de Privacidade</string>
     <string name="lista_de_v_deos">Lista de Vídeos</string>
     <string name="selecione_a_privacidade" >Selecione a privacidade</string>
+
+    <string name="back4app_server_url">https://parseapi.back4app.com/</string>
+
+    <!-- Change the following strings as required -->
+    <string name="back4app_app_id">ByFunDWTTUBYdjpM5SevLaU5AUTONl77zgTVRHzS</string>
+    <string name="back4app_client_key">R1B2oNftsPX8q91IARnjVBHvk2KN7bzlahqS27cd</string>
+
 </resources>
