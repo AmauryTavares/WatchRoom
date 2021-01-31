@@ -16,15 +16,6 @@ public class LoginScreenActivity extends Activity {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login_screen);
-        ParseObject firstObject = new ParseObject("FirstClass");
-        firstObject.put("message","Hey ! First message from android. Parse is now connected");
-        firstObject.saveInBackground(e -> {
-            if (e != null){
-                Log.e("MainActivity", e.getLocalizedMessage());
-            }else{
-                Log.d("MainActivity","Object saved.");
-            }
-        });
     }
 
 
