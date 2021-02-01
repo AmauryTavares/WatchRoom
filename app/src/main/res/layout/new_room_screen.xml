@@ -73,6 +73,7 @@
         android:layout_marginTop="10dp"
         android:paddingLeft="20dp"
         android:hint="Pública"
+        android:text="Pública"
         android:textColor="@color/black"
         android:textColorHint="@color/gray"
         android:gravity="left|center"
