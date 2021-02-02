@@ -15,6 +15,8 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
+import com.parse.ParseUser;
+
 import java.util.Objects;
 
 import static android.widget.Toast.LENGTH_LONG;
@@ -25,6 +27,7 @@ public class RegisterScreenActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         setContentView(R.layout.register_screen);
         EditText nomeUsuario = (EditText) findViewById(R.id.name_text);
         EditText senhaUsuario = (EditText) findViewById(R.id.password_text);
