@@ -64,7 +64,8 @@
             android:focusable="true"
             android:nextFocusUp="@id/back_button"
             android:nextFocusLeft="@id/name_text"
-            android:nextFocusDown="@id/rooms_list"/>
+            android:nextFocusDown="@id/rooms_list"
+            android:onClick="Search"/>
 
         <EditText
             android:id="@+id/name_text"

@@ -8,12 +8,21 @@ import android.widget.GridView;
 
 import androidx.annotation.Nullable;
 
+import com.parse.ParseUser;
+
 import java.util.ArrayList;
 
 public class AddVideoScreenActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(AddVideoScreenActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.add_video_list);
 
         ArrayList<Video> videos = new ArrayList<>();

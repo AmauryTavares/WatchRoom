@@ -6,8 +6,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-
-import com.parse.ParseObject;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -20,8 +20,22 @@ public class LoginScreenActivity extends Activity {
 
 
     public void Login(View view) {
-        Intent intent = new Intent(view.getContext(), InitialMenuActivity.class);
-        view.getContext().startActivity(intent);
+        RepositoryUser repoUser = new RepositoryUser();
+
+        EditText email = (EditText) findViewById(R.id.email_text);
+        EditText password = (EditText) findViewById(R.id.password_text);
+        Button loginButton = (Button) findViewById(R.id.login_button);
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(email.getText().toString().trim().equals("") || password.getText().toString().equals("")){
+                    Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+                } else{
+                    repoUser.login(email.getText().toString(), password.getText().toString(), view);
+                }
+            }
+        });
     }
 
     public void Register(View view) {

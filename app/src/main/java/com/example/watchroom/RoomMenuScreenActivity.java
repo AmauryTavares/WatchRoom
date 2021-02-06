@@ -11,10 +11,19 @@ import java.util.ArrayList;
 
 import androidx.annotation.Nullable;
 
+import com.parse.ParseUser;
+
 public class RoomMenuScreenActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(RoomMenuScreenActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.room_menu_screen);
         Button btn_add_user = (Button) findViewById(R.id.btn_settings);
 

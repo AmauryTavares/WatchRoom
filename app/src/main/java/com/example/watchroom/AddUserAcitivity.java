@@ -6,10 +6,19 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import com.parse.ParseUser;
+
 public class AddUserAcitivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(AddUserAcitivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.room_left_menu_screen);
         Button btn_add_user = (Button) findViewById(R.id.btn_add_user);
 
@@ -19,6 +28,5 @@ public class AddUserAcitivity extends Activity {
                 Intent intent = new Intent(view.getContext(), FriendsRightMenuActivity.class);
                 view.getContext().startActivity(intent);}
         });
-
     }
 }

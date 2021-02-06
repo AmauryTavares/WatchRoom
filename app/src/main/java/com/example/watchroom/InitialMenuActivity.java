@@ -3,14 +3,25 @@ package com.example.watchroom;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewDebug;
 
 import androidx.annotation.Nullable;
+
+import com.parse.ParseUser;
 
 public class InitialMenuActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(InitialMenuActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.initial_menu_screen);
     }
 

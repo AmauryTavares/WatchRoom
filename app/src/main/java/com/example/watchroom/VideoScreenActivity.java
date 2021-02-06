@@ -11,12 +11,21 @@ import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 
+import com.parse.ParseUser;
+
 import java.util.ArrayList;
 
 public class VideoScreenActivity extends Activity {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(VideoScreenActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.video_screen);
 
         LinearLayout topmb = (LinearLayout) findViewById(R.id.top_menu_button);

@@ -13,12 +13,21 @@ import java.util.List;
 
 import androidx.annotation.Nullable;
 
+import com.parse.ParseUser;
+
 public class FriendsRightMenuActivity extends Activity {
     private ListView lv;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        // verify authetication
+        if (ParseUser.getCurrentUser() == null || !ParseUser.getCurrentUser().isAuthenticated()) {
+            Intent intent = new Intent(FriendsRightMenuActivity.this, LoginScreenActivity.class);
+            startActivity(intent);
+        }
+
         setContentView(R.layout.add_user_screen);
 
         ArrayList<String> arrayOfUsers = new ArrayList<String>();
