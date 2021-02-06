@@ -28,7 +28,7 @@ public class CreateRoomScreenActivity extends Activity {
                 if(nameRoom.getText().toString().equals("") || passwordRoom.getText().toString().equals("") || privacyRoom.getText().toString().equals("")){
                     Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
                 }else{
-                    Room room = new Room(nameRoom.getText().toString(), "Admin", passwordRoom.getText().toString(), privacyRoom.getText().toString(), 1);
+                    Room room = new Room(nameRoom.getText().toString(), "Admin", privacyRoom.getText().toString(), passwordRoom.getText().toString(), 1);
                     repositorio.createRoom(room);
                     startActivity(new Intent(getApplicationContext(), MyRoomsScreenActivity.class));
                 }
