@@ -4,13 +4,10 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-<<<<<<< HEAD
 import android.widget.Button;
 import android.widget.Toast;
-=======
 import android.widget.EditText;
 import android.widget.TextView;
->>>>>>> 6a5fc49404d9e2a3e3f8df92d7e35878a5bbe6bf
 
 import androidx.annotation.Nullable;
 
@@ -29,8 +26,7 @@ public class ProfileScreenActivity extends Activity {
 
         setContentView(R.layout.profile_screen);
 
-<<<<<<< HEAD
-        Button btn_signout = (Button) findViewById(R.id.btn_signout);
+        Button btn_signout = (Button) findViewById(R.id.logout);
 
         btn_signout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -38,13 +34,12 @@ public class ProfileScreenActivity extends Activity {
                 startActivity(new Intent(getApplicationContext(), LoginScreenActivity.class));
             }
         });
-=======
+
         TextView name = (TextView) findViewById(R.id.username_text);
         TextView email = (TextView) findViewById(R.id.email_text);
 
         name.setText(ParseUser.getCurrentUser().getUsername());
         email.setText(ParseUser.getCurrentUser().getEmail());
->>>>>>> 6a5fc49404d9e2a3e3f8df92d7e35878a5bbe6bf
     }
 
     public void Back(View view) {

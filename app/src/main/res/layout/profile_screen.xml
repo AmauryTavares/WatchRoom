@@ -66,13 +66,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nome do Usuário #5463"
-<<<<<<< HEAD
             android:textSize="30dp" />
-    </RelativeLayout>
-=======
-            android:textSize="30sp" />
     </LinearLayout>
->>>>>>> 6a5fc49404d9e2a3e3f8df92d7e35878a5bbe6bf
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -84,13 +79,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="usuario@gmail.com"
-<<<<<<< HEAD
             android:textSize="28dp" />
-    </RelativeLayout>
-=======
-            android:textSize="28sp" />
     </LinearLayout>
->>>>>>> 6a5fc49404d9e2a3e3f8df92d7e35878a5bbe6bf
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -98,15 +88,6 @@
         android:layout_gravity="center"
         android:layout_marginTop="20dp">
         <Button
-<<<<<<< HEAD
-            android:id="@+id/btn_signout"
-            android:layout_width="200dp"
-            android:layout_height="50dp"
-            android:text="Sair"
-            android:background="@color/button_red"
-            android:textSize="26dp" />
-    </RelativeLayout>
-=======
             android:id="@+id/logout"
             android:layout_width="200dp"
             android:layout_height="50dp"
@@ -117,5 +98,4 @@
             android:nextFocusUp="@id/back"
             android:onClick="Logout"/>
     </LinearLayout>
->>>>>>> 6a5fc49404d9e2a3e3f8df92d7e35878a5bbe6bf
 </LinearLayout>
