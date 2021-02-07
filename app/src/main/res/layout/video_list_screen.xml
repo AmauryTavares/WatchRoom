@@ -53,7 +53,8 @@
             android:textColorHint="@color/gray"
             android:focusable="true"
             android:nextFocusRight="@id/search_button"
-            android:nextFocusDown="@id/video_list">
+            android:nextFocusDown="@id/video_list"
+            android:nextFocusLeft="@id/right_menu_back">
 
         </EditText>
 

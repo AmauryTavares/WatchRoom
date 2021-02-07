@@ -40,6 +40,7 @@ public class CreateRoomScreenActivity extends Activity {
                     //Room room = new Room(nameRoom.getText().toString(), "Admin", privacyRoom.getText().toString(), passwordRoom.getText().toString(), 1);
                     Room room = new Room(nameRoom.getText().toString(), privacyRoom.getText().toString(), passwordRoom.getText().toString());
                     repositorio.createRoom(room);
+                    Toast.makeText(getApplicationContext(), "Sala criada com sucesso.", Toast.LENGTH_SHORT).show();
                     startActivity(new Intent(getApplicationContext(), InitialMenuActivity.class));
                 }
             }

@@ -18,24 +18,17 @@ public class LoginScreenActivity extends Activity {
         setContentView(R.layout.login_screen);
     }
 
-
     public void Login(View view) {
         RepositoryUser repoUser = new RepositoryUser();
 
         EditText email = (EditText) findViewById(R.id.email_text);
         EditText password = (EditText) findViewById(R.id.password_text);
-        Button loginButton = (Button) findViewById(R.id.login_button);
 
-        loginButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(email.getText().toString().trim().equals("") || password.getText().toString().equals("")){
-                    Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
-                } else{
-                    repoUser.login(email.getText().toString(), password.getText().toString(), view);
-                }
-            }
-        });
+        if(email.getText().toString().trim().equals("") || password.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+        } else{
+            repoUser.login(email.getText().toString(), password.getText().toString(), view);
+        }
     }
 
     public void Register(View view) {

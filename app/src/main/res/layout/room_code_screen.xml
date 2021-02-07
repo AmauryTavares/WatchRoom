@@ -57,10 +57,26 @@
         android:background="@drawable/rounded_edittext"
         android:focusable="true"
         android:nextFocusUp="@id/back_button"
-        android:nextFocusDown="@id/enter" >
+        android:nextFocusDown="@id/password_text" >
 
         <requestFocus />
     </EditText>
+
+    <EditText
+        android:id="@+id/password_text"
+        android:layout_width="400dp"
+        android:layout_height="45dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:inputType="textPassword"
+        android:hint="Digite a senha da sala"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray"
+        android:paddingLeft="15dp"
+        android:background="@drawable/rounded_edittext"
+        android:focusable="true"
+        android:nextFocusUp="@id/name_text"
+        android:nextFocusDown="@id/enter" />
 
     <Button
         android:id="@+id/enter"
@@ -71,7 +87,7 @@
         android:layout_marginTop="40dp"
         android:background="@drawable/rounded_button_green"
         android:focusable="true"
-        android:nextFocusUp="@id/name_text"
+        android:nextFocusUp="@id/password_text"
         android:onClick="Enter"/>
 
 

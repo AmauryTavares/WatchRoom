@@ -4,12 +4,16 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
 import com.parse.ParseUser;
 
 public class CodeRoomScreenActivity extends Activity {
+    RepositoryRoom repoRoom = new RepositoryRoom();
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,8 +28,24 @@ public class CodeRoomScreenActivity extends Activity {
     }
 
     public void Enter(View view) {
-        Intent intent = new Intent(view.getContext(), VideoScreenActivity.class);
-        view.getContext().startActivity(intent);
+        Room room = null;
+
+        EditText code = (EditText) findViewById(R.id.name_text);
+        EditText password = (EditText) findViewById(R.id.password_text);
+
+        if(code.getText().toString().trim().equals("") || password.getText().toString().equals("")){
+            Toast.makeText(getApplicationContext(), "Preencha todos os campos!", Toast.LENGTH_SHORT).show();
+        } else{
+            room = repoRoom.joinRoom(code.getText().toString(), password.getText().toString());
+        }
+
+        if (room != null) {
+            Intent intent = new Intent(view.getContext(), VideoScreenActivity.class);
+
+            intent.putExtra("Room", room);
+
+            view.getContext().startActivity(intent);
+        }
     }
 
     public void Back(View view) {

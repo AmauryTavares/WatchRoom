@@ -8,10 +8,11 @@ import com.parse.ParseObject;
 import com.parse.ParseQuery;
 import com.parse.ParseUser;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Room {
+public class Room implements Serializable {
 
     private String objectId;
     private String name;
@@ -34,114 +35,12 @@ public class Room {
         this.password = password;
     }
 
-    public static ArrayList<Room> getMyRooms(String search) {
-        ArrayList<Room> myRooms = new ArrayList<>();
-
-        // Configure Query
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("UserRoom");
-        query.include("RoomId");
-        // Query Parameters
-        query.whereEqualTo("UserId", ParseUser.getCurrentUser());
-
-        try {
-            List<ParseObject> objects = query.find();
-
-            for (int i = 0; i < objects.size(); i++) {
-                ParseObject userRoom = objects.get(i);
-                ParseObject roomObject = userRoom.getParseObject("RoomId");
-
-                if (search.trim().isEmpty() || roomObject.getString("name").toString().matches(".*" + search + ".*")) {
-                    Room newRoom = new Room(roomObject.getString("name"),
-                            getAdminName(roomObject),
-                            roomObject.getString("privacy"),
-                            "",
-                            getNumberOfUsers(roomObject));
-
-                    myRooms.add(newRoom);
-                }
-            }
-        } catch (Exception e) {
-
-        }
-
-        return myRooms;
+    public String getObjectId() {
+        return objectId;
     }
 
-    public static ArrayList<Room> getPublicRooms(String search) {
-        ArrayList<Room> myRooms = new ArrayList<>();
-
-        // Configure Query
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("UserRoom");
-        query.include("RoomId");
-        // Query Parameters
-        query.whereNotEqualTo("UserId", ParseUser.getCurrentUser());
-
-        try {
-            List<ParseObject> objects = query.find();
-
-            for (int i = 0; i < objects.size(); i++) {
-                ParseObject userRoom = objects.get(i);
-                ParseObject roomObject = userRoom.getParseObject("RoomId");
-
-                if (roomObject.getString("privacy").toString().equals("Pública")
-                    && (search.trim().isEmpty() || roomObject.getString("name").toString().matches(".*" + search + ".*"))) {
-                    Room newRoom = new Room(roomObject.getString("name"),
-                            getAdminName(roomObject),
-                            roomObject.getString("privacy"),
-                            "",
-                            getNumberOfUsers(roomObject));
-
-                    myRooms.add(newRoom);
-                }
-            }
-        } catch (Exception e) {
-
-        }
-
-        return myRooms;
-    }
-
-    private static int getNumberOfUsers(ParseObject roomObject) {
-        int num = 0;
-
-        // Configure Query
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("UserRoom");
-
-        // Query Parameters
-        query.whereEqualTo("RoomId", roomObject);
-
-        try {
-            List<ParseObject> objects = query.find();
-            num = objects.size();
-        } catch (Exception e) {
-
-        }
-
-        return num;
-    }
-
-    private static String getAdminName (ParseObject roomObject) {
-        String adminName = "";
-
-        // Configure Query
-        ParseQuery<ParseObject> query = ParseQuery.getQuery("UserRoom");
-        query.include("UserId");
-        // Query Parameters
-        query.whereEqualTo("RoomId", roomObject);
-        query.whereEqualTo("IsAdmin", true);
-
-        try {
-            List<ParseObject> objects = query.find();
-
-            ParseObject userId = objects.get(0).getParseObject("UserId");
-
-            adminName = userId.getString("username").toString();
-
-        } catch (Exception e) {
-
-        }
-
-        return adminName;
+    public void setObjectId(String objectId) {
+        this.objectId = objectId;
     }
 
     public String getName() {

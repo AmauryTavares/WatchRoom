@@ -16,6 +16,58 @@
         android:nextFocusRight="@id/right_menu_button" />
 
     <LinearLayout
+        android:id="@+id/video_name"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:background="#D607101B"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:focusable="true"
+        android:nextFocusUp="@id/top_menu_button"
+        android:nextFocusRight="@id/video_view"
+        android:onClick="LeftMenu">
+
+        <TextView
+            android:id="@+id/video_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Nome do Vídeo"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/room_name"
+        android:layout_width="wrap_content"
+        android:layout_height="60dp"
+        android:layout_gravity="center_vertical"
+        android:background="#D607101B"
+        android:paddingHorizontal="20dp"
+        android:paddingVertical="10dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="10dp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="10dp"
+        android:focusable="true"
+        android:nextFocusUp="@id/top_menu_button"
+        android:nextFocusRight="@id/video_view"
+        android:onClick="LeftMenu">
+
+        <TextView
+            android:id="@+id/room_name_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="Nome da sala"
+            android:textColor="@color/white"
+            android:textSize="22sp" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/left_menu_button"
         android:layout_width="240dp"
         android:layout_height="80dp"
@@ -27,7 +79,8 @@
         android:paddingVertical="10dp"
         android:focusable="true"
         android:nextFocusUp="@id/top_menu_button"
-        android:nextFocusRight="@id/video_view">
+        android:nextFocusRight="@id/video_view"
+        android:onClick="LeftMenu">
 
         <ImageView
             android:layout_width="60dp"
@@ -60,7 +113,8 @@
         android:layout_marginRight="10dp"
         android:focusable="true"
         android:nextFocusUp="@id/top_menu_button"
-        android:nextFocusLeft="@id/video_view">
+        android:nextFocusLeft="@id/video_view"
+        android:onClick="RightMenu">
 
         <TextView
             android:layout_width="120dp"
@@ -95,7 +149,8 @@
         android:focusable="true"
         android:nextFocusLeft="@id/left_menu_button"
         android:nextFocusRight="@id/right_menu_button"
-        android:nextFocusDown="@id/video_view">
+        android:nextFocusDown="@id/video_view"
+        android:onClick="TopMenu">
 
         <ImageView
             android:layout_width="60dp"
@@ -119,21 +174,22 @@
         android:id="@+id/top_menu_back"
         android:layout_width="180dp"
         android:layout_height="80dp"
-        android:layout_alignParentRight="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginEnd="760dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_vertical"
         android:background="@drawable/rounded_floating_button"
-        android:focusable="true"
-        android:nextFocusRight="@id/name_text"
-        android:paddingHorizontal="10dp"
+        android:paddingHorizontal="20dp"
         android:paddingVertical="10dp"
+        android:focusable="true"
+        android:nextFocusUp="@id/back_button"
         android:visibility="invisible"
-        android:elevation="7dp">
+        android:onClick="BackTopMenu"
+        >
 
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:rotation="270"
             android:src="@drawable/arrow_floating" />
 
         <TextView
@@ -162,6 +218,7 @@
         android:visibility="invisible"
         android:focusable="true"
         android:nextFocusRight="@id/name_text"
+        android:onClick="BackRightMenu"
         >
 
         <ImageView
@@ -194,11 +251,13 @@
         android:visibility="invisible"
         android:focusable="true"
         android:nextFocusRight="@id/name_text"
+        android:onClick="BackLeftMenu"
         >
 
         <ImageView
             android:layout_width="60dp"
             android:layout_height="60dp"
+            android:rotation="180"
             android:src="@drawable/arrow_floating" />
 
         <TextView

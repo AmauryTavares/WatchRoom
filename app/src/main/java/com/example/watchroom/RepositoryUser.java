@@ -34,6 +34,41 @@ public class RepositoryUser {
         });
     }
 
+    public boolean IsAdmin(Room room) {
+        // Configure Query
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Room");
+
+        // Query Parameters
+        query.whereEqualTo("objectId", room.getObjectId());
+
+        try {
+            List<ParseObject> objects = query.find();
+
+            if (objects.size() > 0) {
+                ParseObject roomObject = objects.get(0);
+
+                // Configure Query
+                ParseQuery<ParseObject> query2 = ParseQuery.getQuery("UserRoom");
+
+                // Query Parameters
+                query2.whereEqualTo("RoomId", roomObject);
+                query2.whereEqualTo("UserId", ParseUser.getCurrentUser());
+                query2.whereEqualTo("IsAdmin", true);
+
+                List<ParseObject> objects2 = query2.find();
+
+                if (objects2.size() > 0) {
+                    return true;
+                }
+            }
+
+        } catch (Exception e) {
+
+        }
+
+        return false;
+    }
+
     public void login(String email, String password, View view) {
         backUser.logInInBackground(email, password, new LogInCallback() {
             @Override

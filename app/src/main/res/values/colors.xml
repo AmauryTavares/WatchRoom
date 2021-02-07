@@ -6,6 +6,7 @@
     <color name="button_blue">#18447B</color>
     <color name="button_red">#B2070A</color>
     <color name="button_green">#07A570</color>
+    <color name="button_yellow">#FCA109</color>
     <color name="button_soft_blue" >#3B58B0</color>
     <color name="tranparent" >#00FFFFFF</color>
 </resources>
