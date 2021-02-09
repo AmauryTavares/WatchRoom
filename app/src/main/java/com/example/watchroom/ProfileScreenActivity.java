@@ -31,6 +31,7 @@ public class ProfileScreenActivity extends Activity {
         btn_signout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                ParseUser.logOut();
                 startActivity(new Intent(getApplicationContext(), LoginScreenActivity.class));
             }
         });
