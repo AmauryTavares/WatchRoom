@@ -5,7 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.GridView;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 
@@ -38,12 +41,16 @@ public class FriendScreenActivity extends Activity {
         ArrayList<String> myFriends = new ArrayList<>();
         ArrayList<String> friends = new ArrayList<>();
         AdapterUsersList adapter = new AdapterUsersList(this, friends);
+
         EditText search = (EditText) findViewById(R.id.search_friend);
 
-        ListView friendsView = (ListView) findViewById(R.id.friends_list_view);
+        GridView friendsView = (GridView) findViewById(R.id.friends_list_view);
+        List<ParseObject> objects = null;
+
+        String[] search_tokens = search.getText().toString().split(" ");
 
         try {
-            List<ParseObject> objects = queryFriends.find();
+            objects = queryFriends.find();
             for (int i = 0; i < objects.size(); i++) {
                 String friendId = objects.get(i).getString("friendId");
                 queryUsers.whereEqualTo("objectId", friendId);
@@ -64,6 +71,37 @@ public class FriendScreenActivity extends Activity {
             adapter.add(myFriends.get(i));
         }
 
+
+        ImageButton btn_search = (ImageButton) findViewById(R.id.btn_search);
+        //ArrayList<String> friends_searched = new ArrayList<>();
+        //AdapterUsersList adapter_searched = new AdapterUsersList(this, friends_searched);
+
+        List<ParseObject> finalFriendsObject = objects;
+        btn_search.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                for (int i = 0; i < finalFriendsObject.size(); i++) {
+                    String friendId = finalFriendsObject.get(i).getString("friendId");
+                    queryUsers.whereEqualTo("objectId", friendId);
+                    List<ParseUser> friendsObject = null;
+                    try {
+                        friendsObject = queryUsers.find();
+                        for (int j = 0; j < friendsObject.size(); j++) {
+                            String friendName = friendsObject.get(j).getString("username");
+
+                            if (friendName.equals(search.getText().toString())) {
+                                System.out.println(friendName);
+                                adapter.clear();
+                                adapter.add(friendName);
+                                adapter.notifyDataSetChanged();
+                            }
+                        }
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        });
         friendsView.setAdapter(adapter);
     }
 
