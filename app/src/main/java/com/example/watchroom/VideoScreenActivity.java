@@ -1,28 +1,65 @@
 package com.example.watchroom;
 
+import com.example.watchroom.R;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.AsyncTask;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 
+import com.google.api.client.googleapis.json.GoogleJsonResponseException;
+import com.google.api.client.http.HttpRequest;
+import com.google.api.client.http.HttpRequestInitializer;
+import com.google.api.client.http.HttpTransport;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.JsonFactory;
+import com.google.api.client.json.jackson2.JacksonFactory;
+import com.google.api.services.youtube.YouTube;
+import com.google.api.services.youtube.model.ResourceId;
+import com.google.api.services.youtube.model.SearchListResponse;
+import com.google.api.services.youtube.model.SearchResult;
+import com.google.api.services.youtube.model.Thumbnail;
+import com.google.api.services.youtube.model.VideoListResponse;
 import com.parse.ParseUser;
 
+import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public class VideoScreenActivity extends Activity {
     RepositoryRoom repoRoom = new RepositoryRoom();
     RepositoryUser repoUser = new RepositoryUser();
+    RepositoryPlaylist repoPlaylist = new RepositoryPlaylist();
     Room currentRoom;
+    List<String> videoIds;
 
+    /** Global instance of the HTTP transport. */
+    private static final HttpTransport HTTP_TRANSPORT = new NetHttpTransport();
+
+    /** Global instance of the JSON factory. */
+    private static final JsonFactory JSON_FACTORY = new JacksonFactory();
+
+    /** Global instance of Youtube object to make all API requests. */
+    private static YouTube youtube;
+
+    @SuppressLint("StaticFieldLeak")
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,15 +93,68 @@ public class VideoScreenActivity extends Activity {
             settingsButton.setNextFocusLeftId(R.id.btn_delete);
         }
 
-        ArrayList<Video> videos = new ArrayList<>();
-        AdapterVideoMenuList adapter = new AdapterVideoMenuList(this, videos);
-
-        adapter.add(new Video("Vídeo 1", "7:30", "2.5 mi", ""));
-        adapter.add(new Video("Vídeo 2","3:57", "1.3 mi", ""));
-        adapter.add(new Video("Vídeo 3","3:32", "3 mil", ""));
-
         final GridView gridView = (GridView) findViewById(R.id.video_list);
-        gridView.setAdapter(adapter);
+        TextView emptyView = (TextView)findViewById(R.id.empty);
+        emptyView.setText("Nenhum vídeo adicionado.");
+        gridView.setEmptyView(emptyView);
+
+        getListOfVideo();
+    }
+
+    @SuppressLint("StaticFieldLeak")
+    private void getListOfVideo() {
+        ArrayList<Video> videos = new ArrayList<>();
+        AdapterVideoMenuList adapter = new AdapterVideoMenuList(getApplicationContext(), videos);
+
+        videoIds = repoPlaylist.GetVideoIdsByRoomId(currentRoom.getObjectId());
+
+        new AsyncTask<Void, Void, AdapterVideoMenuList>() {
+
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            protected AdapterVideoMenuList doInBackground(Void... voids) {
+                youtube = new YouTube.Builder(HTTP_TRANSPORT, JSON_FACTORY, new HttpRequestInitializer() {
+                    public void initialize(HttpRequest request) throws IOException {
+                    }
+                }).setApplicationName("youtube-cmdline-search-sample").build();
+
+                String apiKey = getString(R.string.youtube_key);
+
+                Iterator<String> iteratorVideoIds = videoIds.iterator();;
+
+                while (iteratorVideoIds.hasNext()) {
+                    try {
+                        YouTube.Videos.List videoRequest = youtube.videos().list("snippet,statistics,contentDetails");
+                        videoRequest.setId(iteratorVideoIds.next());
+                        videoRequest.setKey(apiKey);
+                        VideoListResponse listResponse = videoRequest.execute();
+                        List<com.google.api.services.youtube.model.Video> videoList = listResponse.getItems();
+
+                        com.google.api.services.youtube.model.Video targetVideo = videoList.iterator().next();
+
+                        Thumbnail thumbnail = (Thumbnail) targetVideo.getSnippet().getThumbnails().get("default");
+
+                        adapter.add(new Video(Video.TruncateText(targetVideo.getSnippet().getTitle(), 13),
+                                Video.ConverttoHHMMSS(targetVideo.getContentDetails().getDuration()),
+                                Video.ConvertViewsCount(targetVideo.getStatistics().getViewCount()),
+                                "",
+                                thumbnail.getUrl()));
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+
+                return adapter;
+            }
+
+            @Override
+            protected void onPostExecute(AdapterVideoMenuList adapterVideoMenuList) {
+                final GridView gridView = (GridView) findViewById(R.id.video_list);
+
+                gridView.setAdapter(adapterVideoMenuList);
+            }
+
+        }.execute();
     }
 
     public void Delete(View view) {
@@ -208,6 +298,8 @@ public class VideoScreenActivity extends Activity {
         rn.setVisibility(View.INVISIBLE);
         vn.setVisibility(View.INVISIBLE);
 
+        GridView gridView = (GridView) findViewById(R.id.video_list);
+        gridView.requestFocus();
         TextView tv = (TextView) findViewById(R.id.name_text);
         tv.requestFocus();
     }
@@ -229,6 +321,8 @@ public class VideoScreenActivity extends Activity {
         rn.setVisibility(View.INVISIBLE);
         vn.setVisibility(View.INVISIBLE);
 
+        GridView gridView = (GridView) findViewById(R.id.video_list);
+        gridView.requestFocus();
         TextView tv = (TextView) findViewById(R.id.name_text);
         tv.requestFocus();
     }
@@ -256,7 +350,42 @@ public class VideoScreenActivity extends Activity {
 
     public void SearchVideo(View view) {
         Intent intent = new Intent(view.getContext(), AddVideoScreenActivity.class);
+
+        EditText searchText = (EditText) findViewById(R.id.name_text);
+
+        intent.putExtra("SearchText", searchText.getText().toString());
+        intent.putExtra("Room", (Room) getIntent().getSerializableExtra("Room"));
+
         view.getContext().startActivity(intent);
+    }
+
+    public void DeleteVideo (View view) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(view.getContext());
+        builder.setTitle("Desfazendo a sala");
+        builder.setMessage("Você irá desfazer a sala. Deseja continuar?");
+        builder.setPositiveButton("Sim", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                GridView gridView = (GridView) findViewById(R.id.video_list);
+
+                int pos = gridView.getPositionForView(view);
+
+                boolean result = repoPlaylist.DeleteVideo(videoIds.get(pos), currentRoom.getObjectId());
+
+                if (result) {
+                    Toast.makeText(getApplicationContext(), "Vídeo removido.", Toast.LENGTH_SHORT).show();
+                    getListOfVideo();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Erro ao remover o vídeo.", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("Não", new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog alert = builder.create();
+        alert.show();
     }
 
 }

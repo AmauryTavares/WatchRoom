@@ -65,7 +65,8 @@
             android:nextFocusLeft="@id/search_text"
             android:nextFocusDown="@id/videos_list"
             android:nextFocusUp="@id/back_button"
-            android:focusable="true"/>
+            android:focusable="true"
+            android:onClick="SearchVideoOnYoutube"/>
 
         <EditText
             android:id="@+id/search_text"
@@ -100,8 +101,16 @@
         android:horizontalSpacing="-60dp"
         android:numColumns="1"
         android:gravity="center"
-        android:descendantFocusability="afterDescendants"
         tools:listitem="@layout/video_list_item"
-        android:nextFocusUp="@id/search_text" />
+        android:nextFocusUp="@id/search_text"
+        />
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
 
 </LinearLayout>

@@ -3,9 +3,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@drawable/rounded_button_soft_blue"
-    android:focusable="true"
-    android:onClick="AddVideo">
+    android:background="@drawable/rounded_button_soft_blue">
 
     <LinearLayout
         android:id="@+id/video_item"
@@ -62,7 +60,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/text_test"
                 android:textColor="@color/white"
-                android:textSize="16dp"/>
+                android:textSize="16sp"/>
 
 
         </LinearLayout>
