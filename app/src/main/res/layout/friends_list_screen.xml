@@ -46,6 +46,7 @@
         android:layout_marginTop="30dp">
 
         <ImageButton
+            android:id="@+id/btn_search"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_marginLeft="200dp"
@@ -70,21 +71,23 @@
 
     </RelativeLayout>
 
-    <RelativeLayout
-        android:layout_width="400dp"
+
+    <GridView
+        android:id="@+id/friends_list_view"
+        android:layout_width="500dp"
+        android:layout_height="310dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:scrollbars="vertical"
+        tools:listitem="@layout/friends_list_item" />
+
+
+    <TextView
+        android:id="@+id/empty"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:layout_marginTop="0dp">
-
-        <ListView
-            android:id="@+id/friends_list_view"
-            android:layout_width="match_parent"
-            android:layout_height="310dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:scrollbars="vertical"
-            tools:listitem="@layout/friends_list_item" />
-
-    </RelativeLayout>
+        android:layout_marginTop="10dp"
+        android:textSize="30sp"/>
 
 </LinearLayout>
