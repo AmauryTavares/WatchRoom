@@ -56,17 +56,17 @@
         android:layout_marginTop="30dp">
 
         <EditText
-            android:id="@+id/name_text2"
+            android:id="@+id/name_settings"
             android:layout_width="250dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_edittext"
             android:hint="Nome da sala"
-            android:textSize="16sp"
             android:inputType="text"
             android:paddingLeft="15dp"
             android:textColor="@color/black"
-            android:textColorHint="@color/gray" />
+            android:textColorHint="@color/gray"
+            android:textSize="16sp" />
 
     </RelativeLayout>
 
@@ -77,14 +77,14 @@
         android:layout_marginTop="30dp">
 
         <EditText
-            android:id="@+id/name_text"
+            android:id="@+id/room_password_settings"
             android:layout_width="250dp"
             android:layout_height="45dp"
             android:layout_gravity="center"
             android:background="@drawable/rounded_edittext"
-            android:hint="Senha"
+            android:hint="Nova senha"
             android:textSize="16sp"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:paddingLeft="15dp"
             android:textColor="@color/black"
             android:textColorHint="@color/gray" />
@@ -98,7 +98,7 @@
         android:layout_marginTop="30dp">
 
         <Button
-            android:id="@+id/planets_spinner"
+            android:id="@+id/save_settings"
             android:text="Salvar"
             android:background="@color/button_green"
             android:layout_width="150dp"

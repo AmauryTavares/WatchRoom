@@ -191,6 +191,7 @@ public class VideoScreenActivity extends Activity {
 
     public void Settings(View view) {
         Intent intent = new Intent(view.getContext(), RoomSettingsActivity.class);
+        intent.putExtra("Teste", currentRoom);
         view.getContext().startActivity(intent);
     }
 

@@ -8,6 +8,7 @@ import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -47,8 +48,6 @@ public class FriendScreenActivity extends Activity {
         GridView friendsView = (GridView) findViewById(R.id.friends_list_view);
         List<ParseObject> objects = null;
 
-        String[] search_tokens = search.getText().toString().split(" ");
-
         try {
             objects = queryFriends.find();
             for (int i = 0; i < objects.size(); i++) {
@@ -71,35 +70,13 @@ public class FriendScreenActivity extends Activity {
             adapter.add(myFriends.get(i));
         }
 
-
         ImageButton btn_search = (ImageButton) findViewById(R.id.btn_search);
-        //ArrayList<String> friends_searched = new ArrayList<>();
-        //AdapterUsersList adapter_searched = new AdapterUsersList(this, friends_searched);
 
         List<ParseObject> finalFriendsObject = objects;
         btn_search.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                for (int i = 0; i < finalFriendsObject.size(); i++) {
-                    String friendId = finalFriendsObject.get(i).getString("friendId");
-                    queryUsers.whereEqualTo("objectId", friendId);
-                    List<ParseUser> friendsObject = null;
-                    try {
-                        friendsObject = queryUsers.find();
-                        for (int j = 0; j < friendsObject.size(); j++) {
-                            String friendName = friendsObject.get(j).getString("username");
-
-                            if (friendName.equals(search.getText().toString())) {
-                                System.out.println(friendName);
-                                adapter.clear();
-                                adapter.add(friendName);
-                                adapter.notifyDataSetChanged();
-                            }
-                        }
-                    } catch (ParseException e) {
-                        e.printStackTrace();
-                    }
-                }
+                Search(adapter, search, queryUsers, queryFriends, finalFriendsObject);
             }
         });
         friendsView.setAdapter(adapter);
@@ -108,5 +85,34 @@ public class FriendScreenActivity extends Activity {
     public void Back(View view) {
         Intent intent = new Intent(view.getContext(), InitialMenuActivity.class);
         view.getContext().startActivity(intent);
+    }
+
+    public void Search(AdapterUsersList adapter, EditText search, ParseQuery<ParseUser> queryUsers, ParseQuery<ParseObject> queryFriends, List<ParseObject> finalFriendsObject){
+        if(!search.getText().toString().trim().isEmpty()){
+            for (int i = 0; i < finalFriendsObject.size(); i++) {
+                String friendId = finalFriendsObject.get(i).getString("friendId");
+                queryUsers.whereEqualTo("objectId", friendId);
+                List<ParseUser> friendsObject = null;
+                try {
+                    friendsObject = queryUsers.find();
+                    for (int j = 0; j < friendsObject.size(); j++) {
+                        String friendName = friendsObject.get(j).getString("username").toLowerCase();
+
+                        if (friendName.contains(search.getText().toString().toLowerCase())) {
+                            adapter.clear();
+                            adapter.add(friendName);
+                            adapter.notifyDataSetChanged();
+                        }
+                    }
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+        }else{
+            adapter.clear();
+            adapter.notifyDataSetChanged();
+            TextView emptyView = (TextView) findViewById(R.id.empty_friends);
+            emptyView.setText("Nenhuma amigo encontrada.");
+        }
     }
 }
