@@ -80,6 +80,7 @@ public class VideoScreenActivity extends Activity {
         roomNameText.setText(currentRoom.getName());
 
         Button deleteButton = (Button) findViewById(R.id.btn_delete);
+        Button btn_share = (Button) findViewById(R.id.btn_share);
         LinearLayout menu_button = (LinearLayout) findViewById(R.id.back_button);
         Button settingsButton = (Button) findViewById(R.id.btn_settings);
 
@@ -92,6 +93,13 @@ public class VideoScreenActivity extends Activity {
             menu_button.setNextFocusRightId(R.id.btn_delete);
             settingsButton.setNextFocusLeftId(R.id.btn_delete);
         }
+
+        btn_share.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Sharing(view);
+            }
+        });
 
         final GridView gridView = (GridView) findViewById(R.id.video_list);
         TextView emptyView = (TextView)findViewById(R.id.empty);
@@ -191,7 +199,13 @@ public class VideoScreenActivity extends Activity {
 
     public void Settings(View view) {
         Intent intent = new Intent(view.getContext(), RoomSettingsActivity.class);
-        intent.putExtra("Teste", currentRoom);
+        intent.putExtra("Room", currentRoom);
+        view.getContext().startActivity(intent);
+    }
+
+    public void Sharing(View view) {
+        Intent intent = new Intent(view.getContext(), RoomSharingActivity.class);
+        intent.putExtra("Room", currentRoom);
         view.getContext().startActivity(intent);
     }
 

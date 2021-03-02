@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/video_bg">
+    android:background="@color/default_background">
 
     <RelativeLayout
         android:layout_width="550dp"
@@ -26,6 +27,7 @@
             android:layout_marginBottom="140dp">
 
             <TextView
+                android:id="@+id/code_text"
                 android:layout_width="189dp"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
@@ -35,7 +37,7 @@
                 android:layout_marginEnd="190dp"
                 android:layout_marginBottom="23dp"
                 android:text="AC5S6B"
-                android:textSize="176pt" />
+                android:textSize="48sp" />
 
             <TextView
                 android:layout_width="495dp"
@@ -48,7 +50,7 @@
                 android:layout_marginEnd="23dp"
                 android:layout_marginBottom="25dp"
                 android:text="Use o código da sala abaixo para compartilhar a sala entre outras pessoas."
-                android:textSize="96pt" />
+                android:textSize="22sp" />
 
         </RelativeLayout>
 
@@ -64,12 +66,13 @@
             android:layout_marginBottom="50dp">
 
             <Button
+                android:id="@+id/btn_share_close"
                 android:layout_width="350dp"
                 android:layout_height="70dp"
                 android:layout_alignParentBottom="true"
-                android:text="Voltar"
-                android:background="@color/button_green"
-                android:textSize="106pt" />
+                android:text="Fechar"
+                android:background="@color/button_red"
+                android:textSize="28sp" />
 
         </LinearLayout>
 

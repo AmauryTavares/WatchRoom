@@ -82,6 +82,11 @@
             android:windowSoftInputMode="stateHidden"></activity>
 
         <activity
+            android:name=".RoomSharingActivity"
+            android:screenOrientation="landscape"
+            android:windowSoftInputMode="stateHidden"></activity>
+
+        <activity
             android:name=".RoomSettingsActivity"
             android:screenOrientation="landscape"
             android:windowSoftInputMode="stateHidden"></activity>

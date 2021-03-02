@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.ImageButton;
@@ -22,6 +23,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FriendScreenActivity extends Activity {
+    String currentUserId;
+    ParseQuery<ParseUser> queryUsers;
+    ParseQuery<ParseObject> queryFriends;
+    List<ParseObject> objects = null;
+    ArrayList<String> myFriends;
+    EditText search;
+    AdapterUsersList adapter;
+
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,44 +42,23 @@ public class FriendScreenActivity extends Activity {
         }
         setContentView(R.layout.friends_list_screen);
 
-        String currentUserId = ParseUser.getCurrentUser().getObjectId();
-        ParseQuery<ParseUser> queryUsers = ParseQuery.getQuery("_User");
-        ParseQuery<ParseObject> queryFriends = ParseQuery.getQuery("Friends");
+        currentUserId = ParseUser.getCurrentUser().getObjectId();
+        queryUsers = ParseQuery.getQuery("_User");
+        queryFriends = ParseQuery.getQuery("Friends");
 
         queryFriends.whereEqualTo("userId", currentUserId);
 
-        ArrayList<String> myFriends = new ArrayList<>();
+        myFriends = new ArrayList<>();
         ArrayList<String> friends = new ArrayList<>();
-        AdapterUsersList adapter = new AdapterUsersList(this, friends);
+        adapter = new AdapterUsersList(this, friends);
 
-        EditText search = (EditText) findViewById(R.id.search_friend);
+        search = (EditText) findViewById(R.id.search_friend);
 
         GridView friendsView = (GridView) findViewById(R.id.friends_list_view);
-        List<ParseObject> objects = null;
-
-        try {
-            objects = queryFriends.find();
-            for (int i = 0; i < objects.size(); i++) {
-                String friendId = objects.get(i).getString("friendId");
-                queryUsers.whereEqualTo("objectId", friendId);
-                List<ParseUser> friendsObject = queryUsers.find();
-
-                if (search.getText().toString().trim().isEmpty()){
-                    for (int j = 0; j < friendsObject.size(); j++) {
-                        String friendName = friendsObject.get(j).getString("username");
-                        myFriends.add(friendName);
-                    }
-                }
-            }
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-
-        for (int i = 0; i < myFriends.size(); i++) {
-            adapter.add(myFriends.get(i));
-        }
+        Get();
 
         ImageButton btn_search = (ImageButton) findViewById(R.id.btn_search);
+        ImageButton btn_remove = (ImageButton) findViewById(R.id.btn_rmv_friend);
 
         List<ParseObject> finalFriendsObject = objects;
         btn_search.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +67,7 @@ public class FriendScreenActivity extends Activity {
                 Search(adapter, search, queryUsers, queryFriends, finalFriendsObject);
             }
         });
+
         friendsView.setAdapter(adapter);
     }
 
@@ -113,6 +102,30 @@ public class FriendScreenActivity extends Activity {
             adapter.notifyDataSetChanged();
             TextView emptyView = (TextView) findViewById(R.id.empty_friends);
             emptyView.setText("Nenhuma amigo encontrada.");
+        }
+    }
+
+    public void Get(){
+        try {
+            objects = queryFriends.find();
+            for (int i = 0; i < objects.size(); i++) {
+                String friendId = objects.get(i).getString("friendId");
+                queryUsers.whereEqualTo("objectId", friendId);
+                List<ParseUser> friendsObject = queryUsers.find();
+
+                if (search.getText().toString().trim().isEmpty()){
+                    for (int j = 0; j < friendsObject.size(); j++) {
+                        String friendName = friendsObject.get(j).getString("username");
+                        myFriends.add(friendName);
+                    }
+                }
+            }
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+
+        for (int i = 0; i < myFriends.size(); i++) {
+            adapter.add(myFriends.get(i));
         }
     }
 }

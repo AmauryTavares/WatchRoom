@@ -84,4 +84,39 @@ public class RepositoryUser {
             }
         });
     }
+
+    public void removeFriend(String friend, ParseUser user){
+        //System.out.println(user.getObjectId());
+        ParseQuery<ParseObject> query = ParseQuery.getQuery("Friends");
+        query.whereEqualTo("userId", user.getObjectId());
+        try {
+            List<ParseObject> friends = query.find();
+            for (int i = 0; i < friends.size(); i++) {
+                ParseObject friendObject = friends.get(i);
+                String objectId = friendObject.getString("friendId");
+
+                ParseQuery<ParseObject> queryUser = ParseQuery.getQuery("_User");
+                queryUser.whereEqualTo("userId", objectId);
+                queryUser.findInBackground(new FindCallback<ParseObject>() {
+                    @Override
+                    public void done(final List<ParseObject> object, ParseException e) {
+                        if (e == null) {
+                            System.out.println(object);
+                        }
+                    };
+                });
+                /*
+                List<ParseUser> frnUsers = queryUser.find();
+                for (int j = 0; j < frnUsers.size(); j++) {
+                    ParseUser friendUser = frnUsers.get(i);
+                    System.out.println(friendUser.getString("username"));
+                }
+
+                 */
+            }
+        } catch (Exception e) {
+
+        }
+
+    }
 }

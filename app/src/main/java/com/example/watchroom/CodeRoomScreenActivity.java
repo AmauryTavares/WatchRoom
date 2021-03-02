@@ -41,9 +41,7 @@ public class CodeRoomScreenActivity extends Activity {
 
         if (room != null) {
             Intent intent = new Intent(view.getContext(), VideoScreenActivity.class);
-
             intent.putExtra("Room", room);
-
             view.getContext().startActivity(intent);
         }
     }

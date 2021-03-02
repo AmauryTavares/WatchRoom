@@ -128,7 +128,6 @@ public class RepositoryRoom {
         // Query Parameters
         query.whereEqualTo("code", code);
         query.whereEqualTo("password", password);
-        query.whereEqualTo("privacy", "Privada");
 
         try {
             List<ParseObject> objects = query.find();

@@ -71,15 +71,14 @@
 
     </RelativeLayout>
 
-
     <GridView
         android:id="@+id/friends_list_view"
-        android:layout_width="500dp"
+        android:layout_width="350dp"
         android:layout_height="310dp"
         android:layout_gravity="center"
         android:layout_marginTop="20dp"
         android:scrollbars="vertical"
-        tools:listitem="@layout/friends_list_item" >
+        tools:listitem="@layout/room_left_menu_item" >
     </GridView>
 
     <LinearLayout
